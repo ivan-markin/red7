@@ -9,13 +9,86 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+      (function (m, e, t, r, i, k, a) {
+        m[i] =
+          m[i] ||
+          function () {
+            (m[i].a = m[i].a || []).push(arguments);
+          };
+        m[i].l = 1 * new Date();
+        for (var j = 0; j < document.scripts.length; j++) {
+          if (document.scripts[j].src === r) {
+            return;
+          }
+        }
+        (k = e.createElement(t)),
+          (a = e.getElementsByTagName(t)[0]),
+          (k.async = 1),
+          (k.src = r),
+          a.parentNode.insertBefore(k, a);
+      })(
+        window,
+        document,
+        'script',
+        'https://mc.yandex.ru/metrika/tag.js',
+        'ym',
+      );
+
+      ym(50545570, 'init', {
+        clickmap: true,
+        trackLinks: true,
+        accurateTrackBounce: true,
+        webvisor: true,
+        trackHash: true,
+        ecommerce: 'dataLayer',
+      });
+    </script>
+
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NWBBDB6');
+    </script>
+    <!-- End Google Tag Manager -->
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Stories Slider</title>
-    <script type="module" crossorigin src="assets/index.24ac473d.js"></script>
+    <script type="module" crossorigin src="assets/index.3f46c572.js"></script>
     <link rel="stylesheet" href="assets/index.14694bfc.css">
   </head>
 
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-NWBBDB6"
+        height="0"
+        width="0"
+        style="display: none; visibility: hidden"
+      ></iframe
+    ></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <noscript
+      ><div>
+        <img
+          src="https://mc.yandex.ru/watch/50545570"
+          style="position: absolute; left: -9999px"
+          alt=""
+        /></div
+    ></noscript>
+
     <div id="app">
       <!-- Demo app -->
       <div class="demo-app">
@@ -2825,6 +2898,7 @@
                                 <span>от</span>
                                 <input
                                   id="bedrooms_from"
+                                  name="bedrooms_from"
                                   type="text"
                                   placeholder="1"
                                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
@@ -2834,6 +2908,7 @@
                                 <span>до</span>
                                 <input
                                   id="bedrooms_to"
+                                  name="bedrooms_to"
                                   type="text"
                                   placeholder="5"
                                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
@@ -2850,6 +2925,7 @@
                                 <span>до</span>
                                 <input
                                   id="cost"
+                                  name="cost"
                                   type="text"
                                   placeholder="70 078 296 ₽"
                                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
@@ -2866,6 +2942,7 @@
                                 <span>от</span>
                                 <input
                                   id="square_from"
+                                  name="square_from"
                                   type="num"
                                   placeholder="30"
                                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
@@ -2875,6 +2952,7 @@
                                 <span>до</span>
                                 <input
                                   id="square_to"
+                                  name="square_to"
                                   type="num"
                                   placeholder="180"
                                   onkeyup="this.value = this.value.replace(/[^\d]/g,'');"
@@ -2889,6 +2967,7 @@
                                 <input
                                   id="name_pers"
                                   type="text"
+                                  name="name"
                                   placeholder="Ваше имя"
                                   required
                                 />
@@ -2906,6 +2985,7 @@
                                 <input
                                   id="tel_pers"
                                   class="tel"
+                                  name="tel"
                                   type="tel"
                                   minlength="18"
                                   required
@@ -3171,7 +3251,9 @@
         </div>
       </div>
     </div>
+
     
+
     <script>
       document.addEventListener('DOMContentLoaded', function () {
         var elem = document.querySelector('.carousel');
@@ -3184,39 +3266,64 @@
     </script>
     <script>
       function comagicSendData(comagicData) {
+        window.top.postMessage('close-story', '*');
         console.log(comagicData);
-        Comagic.addOfflineRequest(
-          {
-            name: comagicData.name,
-            email: comagicData.email,
-            phone: comagicData.tel,
-            form_name: comagicData.formName,
-            message: comagicData.message,
-          },
-          function (o) {
-            let m = JSON.parse(o.response);
-            if (!m.success) {
-              console.log('Error send data');
-              console.log(o.response);
-              document.getElementById('send_call_btn').textContent =
-                'Ошибка отправки';
-              document.getElementById('construct_btn_send').textContent =
-                'Ошибка отправки';
-              return;
-            }
+
+        function requestCallback(o) {
+          let m = JSON.parse(o.response);
+          if (!m.success) {
+            console.log('Error send data');
+            console.log(o.response);
             document.getElementById('send_call_btn').textContent =
-              'Заявка успешно отправлена';
+              'Ошибка отправки';
             document.getElementById('construct_btn_send').textContent =
-              'Заявка успешно отправлена';
-          },
-        );
+              'Ошибка отправки';
+            return;
+          }
+          document.getElementById('send_call_btn').textContent =
+            'Заявка успешно отправлена';
+          document.getElementById('construct_btn_send').textContent =
+            'Заявка успешно отправлена';
+        }
+
+        if (comagicData.formName === 'Форма: Заказать звонок') {
+          Comagic.addOfflineRequest(
+            {
+              name: comagicData.name,
+              email: comagicData.email,
+              phone: comagicData.tel,
+              form_name: comagicData.formName,
+              message: comagicData.message,
+            },
+            requestCallback(o),
+          );
+        }
+
+        if (
+          comagicData.formName === 'Форма: Получите индивидуальную подборку'
+        ) {
+          Comagic.addOfflineRequest(
+            {
+              name: comagicData.namePers,
+              tel: comagicData.telPers,
+              bedrooms_from: comagicData.bedroomsFrom,
+              bedrooms_to: comagicData.bedroomsTo,
+              square_from: comagicData.squareFrom,
+              square_to: comagicData.squareTo,
+              cost: comagicData.cost,
+              form_name: comagicData.formName,
+              message: comagicData.message,
+            },
+            requestCallback(o),
+          );
+        }
       }
 
       // ############# formPersonal Event #############
       document.getElementById('formPersonal').onsubmit = function () {
         event.preventDefault();
-        let name = document.getElementById('name_pers');
-        let tel = document.getElementById('tel_pers');
+        let namePers = document.getElementById('name_pers');
+        let telPers = document.getElementById('tel_pers');
         let bedrooms_from = document.getElementById('bedrooms_from');
         let bedrooms_to = document.getElementById('bedrooms_to');
         let square_from = document.getElementById('square_from');
@@ -3229,6 +3336,8 @@
         }
 
         var obj = new Object();
+        obj.namePers = namePers.value;
+        obj.telPers = telPers.value;
         obj.number_of_bedrooms_from = bedrooms_from.value;
         obj.number_of_bedrooms_to = bedrooms_to.value;
         obj.square_from = square_from.value;
@@ -3237,13 +3346,43 @@
         let jsonString = JSON.stringify(obj);
 
         let comagicData = new Object();
-        comagicData.name = name.value;
-        comagicData.tel = tel.value;
+        comagicData.namePers = namePers.value;
+        comagicData.telPers = telPers.value;
+        comagicData.bedroomsFrom = bedrooms_from.value;
+        comagicData.bedroomsTo = bedrooms_to.value;
+        comagicData.squareFrom = square_from.value;
+        comagicData.squareTo = square_to.value;
+        comagicData.cost = cost.value;
         comagicData.formName = 'Форма: Получите индивидуальную подборку';
         comagicData.message = jsonString;
         comagicSendData(comagicData);
       };
       // ############# formPersonal Event #############
+
+      // ############# formCallback Event #############
+      document.getElementById('callbackForm').onsubmit = function () {
+        event.preventDefault();
+        let name = document.getElementById('name');
+        let tel = document.getElementById('tel');
+
+        if (tel.value == '') {
+          document.getElementById('tel_label_').style.color = '#FF0000';
+          return;
+        }
+
+        var obj = new Object();
+        obj.name = name.value;
+        obj.tel = tel.value;
+        let jsonString = JSON.stringify(obj);
+
+        let comagicData = new Object();
+        comagicData.name = name.value;
+        comagicData.tel = tel.value;
+        comagicData.formName = 'Форма: Заказать звонок';
+        comagicData.message = jsonString;
+        comagicSendData(comagicData);
+      };
+      // ############# formCallback Event #############
 
       // ############# Phone mask #############
       window.addEventListener('DOMContentLoaded', function () {
@@ -3289,6 +3428,7 @@
       });
       // ############# Phone mask #############
     </script>
+
     <script type="text/javascript">
       var __cs = __cs || [];
       __cs.push(['setCsAccount', 'P9MGH_SwFkyiulNp2y0zlvS_NsTzwYlk']);
@@ -3298,5 +3438,18 @@
       async
       src="https://app.comagic.ru/static/cs.min.js"
     ></script>
+
+    <script>
+      dataLayer.push({
+        event: 'GAevent',
+        eventCategory: 'form',
+        eventAction: 'send',
+        eventLabel: 'stories',
+      });
+    </script>
+
+    <script>
+      ym(50545570, 'reachGoal', 'form_send_stories');
+    </script>
   </body>
 </html>
