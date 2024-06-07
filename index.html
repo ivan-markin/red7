@@ -10,6 +10,21 @@
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+    <!-- Google Tag Manager -->
+    <script>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != 'dataLayer' ? '&l=' + l : '';
+        j.async = true;
+        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, 'script', 'dataLayer', 'GTM-NWBBDB6');
+    </script>
+    <!-- End Google Tag Manager -->
+    
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
       (function (m, e, t, r, i, k, a) {
@@ -45,27 +60,17 @@
         trackHash: true,
         ecommerce: 'dataLayer',
       });
-    </script>
-
-    <!-- Google Tag Manager -->
-    <script>
-      (function (w, d, s, l, i) {
-        w[l] = w[l] || [];
-        w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-        var f = d.getElementsByTagName(s)[0],
-          j = d.createElement(s),
-          dl = l != 'dataLayer' ? '&l=' + l : '';
-        j.async = true;
-        j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-        f.parentNode.insertBefore(j, f);
-      })(window, document, 'script', 'dataLayer', 'GTM-NWBBDB6');
-    </script>
-    <!-- End Google Tag Manager -->
+    </script>    
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stories Slider</title>
-    <script type="module" crossorigin src="assets/index.3f46c572.js"></script>
-    <link rel="stylesheet" href="assets/index.14694bfc.css">
+    <title>RED7</title>
+
+    <script type="text/javascript" 
+      async
+      src="https://app.comagic.ru/static/cs.min.js?k=6s8R10pAbKs_7XHRB82uZnR8E7p596ZF"
+    ></script>
+    <script type="module" crossorigin src="assets/index.33424191.js"></script>
+    <link rel="stylesheet" href="assets/index.cfa235c4.css">
   </head>
 
   <body>
@@ -143,18 +148,18 @@
             </span>
             <span class="demo-stories-name">Уникальные<br />форматы</span>
           </a>
-          <a href="#">
-            <span class="demo-stories-avatar">
-              <img src="avatars/widget-8.png" alt="" />
-            </span>
-            <span class="demo-stories-name">Планировки<br />и цены</span>
-          </a>
-          <a href="#">
+<!--          <a href="#">-->
+<!--            <span class="demo-stories-avatar">-->
+<!--              <img src="avatars/widget-8.png" alt="" />-->
+<!--            </span>-->
+<!--            <span class="demo-stories-name">Планировки<br />и цены</span>-->
+<!--          </a>-->
+          <!-- <a href="#">
             <span class="demo-stories-avatar">
               <img src="avatars/widget-9.png" alt="" />
             </span>
             <span class="demo-stories-name">Условия<br />покупки</span>
-          </a>
+          </a> -->
         </div>
       </div>
 
@@ -576,6 +581,14 @@
                               Отправить
                             </button>
                           </form>
+
+                          <div class="send-success" id="callbackFormSuccess">
+                            <img src="images/success-icon.svg" alt="">
+                            <span>
+                              Ваша заявка<br>успешно отправлена
+                            </span>
+                          </div>
+
                           <span
                             class="subscription-text"
                             style="margin-bottom: 20px"
@@ -584,9 +597,13 @@
                             с&nbsp;Пользовательским соглашением настоящего сайта
                           </span>
                           <div class="form-socials">
-                            <a
+                            <!-- <a
                               role="button"
                               onclick="window.location='https://t.me/OsnovaChatPlatformBot'"
+                            > -->
+                            <a                              
+                              href="https://t.me/OsnovaChatPlatformBot"
+                              target="_blank"
                             >
                               <img
                                 src="images/telegram-icon_black.svg"
@@ -595,9 +612,13 @@
                                 alt=""
                               />
                             </a>
-                            <a
+                            <!-- <a
                               role="button"
                               onclick="window.location='https://wa.me/79030155954'"
+                            > -->
+                            <a
+                              href="https://wa.me/79030155954"
+                              target="_blank"                              
                             >
                               <img
                                 src="images/whatsapp-icon_black.svg"
@@ -3003,9 +3024,13 @@
                           </button>
                         </form>
                         <div class="form-socials">
-                          <a
+                          <!-- <a
                             role="button"
                             onclick="window.location='https://t.me/OsnovaChatPlatformBot'"
+                          > -->
+                          <a
+                            href="https://t.me/OsnovaChatPlatformBot"                            
+                            target="_blank"
                           >
                             <img
                               src="images/telegram-icon_black.svg"
@@ -3014,9 +3039,13 @@
                               alt=""
                             />
                           </a>
-                          <a
+                          <!-- <a
                             role="button"
                             onclick="window.location='https://wa.me/79030155954'"
+                          > -->
+                          <a                            
+                            href="https://wa.me/79030155954"
+                            target="_blank"
                           >
                             <img
                               src="images/whatsapp-icon_black.svg"
@@ -3030,6 +3059,13 @@
                             мессенджере
                           </span>
                         </div>
+
+                        <div class="send-success" id="personalFormSuccess">
+                          <img src="images/success-icon.svg" alt="">
+                          <span>
+                            Ваша заявка<br>успешно отправлена
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -3038,10 +3074,10 @@
             </div>
 
             <!-- RED7: STORY 9 -->
-            <div class="swiper-slide">
+            <!-- <div class="swiper-slide">
               <div class="swiper">
                 <div class="swiper-wrapper">
-                  <!-- RED7: SLIDE 9-1 -->
+                  
                   <div class="swiper-slide" style="background-color: white">
                     <div class="top-gradient"></div>
                     <div class="stories-slider-actions">
@@ -3125,7 +3161,7 @@
                     </div>
                   </div>
 
-                  <!-- RED7: SLIDE 9-2 -->
+                  
                   <div class="swiper-slide" style="background-color: white">
                     <div class="top-gradient"></div>
                     <div class="stories-slider-actions">
@@ -3195,7 +3231,7 @@
                     </div>
                   </div>
 
-                  <!-- RED7: SLIDE 9-3 -->
+                  
                   <div class="swiper-slide" style="background-color: white">
                     <div class="top-gradient"></div>
                     <div class="stories-slider-actions">
@@ -3246,7 +3282,7 @@
                   </div>
                 </div>
               </div>
-            </div>
+            </div> -->
           </div>
         </div>
       </div>
@@ -3265,37 +3301,57 @@
       });
     </script>
     <script>
-      function comagicSendData(comagicData) {
-        window.top.postMessage('close-story', '*');
-        console.log(comagicData);
+      function comagicSendData(comagicData) {        
+        // console.log(comagicData);              
 
         function requestCallback(o) {
           let m = JSON.parse(o.response);
           if (!m.success) {
             console.log('Error send data');
-            console.log(o.response);
+            // console.log(o.response);            
             document.getElementById('send_call_btn').textContent =
               'Ошибка отправки';
             document.getElementById('construct_btn_send').textContent =
-              'Ошибка отправки';
+              'Ошибка отправки';          
             return;
+          }          
+          
+          document.querySelectorAll('.send-success').forEach(el => {
+            el.style.display = 'flex';
+          })   
+          
+          function onTimeout() {
+            document.querySelectorAll('.send-success').forEach(el => {
+              el.style.display = 'none';
+            })            
+
+            dataLayer.push({
+              event: 'GAevent',
+              eventCategory: 'form',
+              eventAction: 'send',
+              eventLabel: 'stories',
+            });
+
+            ym(50545570, 'reachGoal', 'form_send_stories');                                      
+
+            document.getElementById('callbackForm').reset();  
+            document.getElementById('formPersonal').reset(); 
+
+            window.top.postMessage('close-story', '*');
           }
-          document.getElementById('send_call_btn').textContent =
-            'Заявка успешно отправлена';
-          document.getElementById('construct_btn_send').textContent =
-            'Заявка успешно отправлена';
+
+          setTimeout(onTimeout, 3000);                               
         }
 
-        if (comagicData.formName === 'Форма: Заказать звонок') {
+        if (comagicData.formName === 'Форма: Заказать звонок') {              
           Comagic.addOfflineRequest(
             {
-              name: comagicData.name,
-              email: comagicData.email,
+              name: comagicData.name,              
               phone: comagicData.tel,
               form_name: comagicData.formName,
-              message: comagicData.message,
-            },
-            requestCallback(o),
+              message: comagicData.message,                           
+            },            
+            function(o) {requestCallback(o)}
           );
         }
 
@@ -3312,12 +3368,12 @@
               square_to: comagicData.squareTo,
               cost: comagicData.cost,
               form_name: comagicData.formName,
-              message: comagicData.message,
+              message: comagicData.message,                  
             },
-            requestCallback(o),
+            function(o) {requestCallback(o)}
           );
-        }
-      }
+        }                
+      }      
 
       // ############# formPersonal Event #############
       document.getElementById('formPersonal').onsubmit = function () {
@@ -3355,7 +3411,7 @@
         comagicData.cost = cost.value;
         comagicData.formName = 'Форма: Получите индивидуальную подборку';
         comagicData.message = jsonString;
-        comagicSendData(comagicData);
+        comagicSendData(comagicData);           
       };
       // ############# formPersonal Event #############
 
@@ -3379,8 +3435,9 @@
         comagicData.name = name.value;
         comagicData.tel = tel.value;
         comagicData.formName = 'Форма: Заказать звонок';
-        comagicData.message = jsonString;
-        comagicSendData(comagicData);
+        comagicData.message = jsonString;                
+
+        comagicSendData(comagicData);             
       };
       // ############# formCallback Event #############
 
@@ -3427,29 +3484,21 @@
         });
       });
       // ############# Phone mask #############
-    </script>
+    </script>    
 
-    <script type="text/javascript">
+    <!-- <script type="text/javascript">
+      var __cs = __cs || [];
+      __cs.push(['setCsAccount', '6s8R10pAbKs_7XHRB82uZnR8E7p596ZF']);
+    </script> -->
+    
+    <!-- <script type="text/javascript">
       var __cs = __cs || [];
       __cs.push(['setCsAccount', 'P9MGH_SwFkyiulNp2y0zlvS_NsTzwYlk']);
-    </script>
-    <script
+    </script> -->
+    <!-- <script
       type="text/javascript"
       async
       src="https://app.comagic.ru/static/cs.min.js"
-    ></script>
-
-    <script>
-      dataLayer.push({
-        event: 'GAevent',
-        eventCategory: 'form',
-        eventAction: 'send',
-        eventLabel: 'stories',
-      });
-    </script>
-
-    <script>
-      ym(50545570, 'reachGoal', 'form_send_stories');
-    </script>
+    ></script>           -->
   </body>
 </html>
